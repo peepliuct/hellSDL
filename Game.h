@@ -6,11 +6,11 @@
 class Game {
 
 public:
-    Game(void):m_bRunning(true){};
+    Game(void):m_bRunning(false),m_pWindow(NULL),m_pRender(NULL),m_pTexture(NULL){};
 
     ~Game(void) {};
 
-    bool init(const char* title, int xpos, int ypos, int width, int height, int flags);
+    bool init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen);
 
     void render(void);
 
@@ -22,6 +22,8 @@ public:
    
     bool running(void) { return m_bRunning; }
 private:
+
+	void loadAssets(void);
 protected:
 
 
@@ -34,6 +36,8 @@ private:
 	SDL_Window* m_pWindow = NULL;
 
 	SDL_Renderer* m_pRender = NULL;
+
+	SDL_Texture* m_pTexture = NULL;
 
 protected:
 
