@@ -46,7 +46,7 @@ void Game::render(void){
 
 
     // delay 5s before the window shuts down
-    SDL_Delay(5000);
+    //SDL_Delay(5000);
 }
 
 void Game::update(void){
