@@ -47,7 +47,7 @@ void Game::render(void){
 }
 
 void Game::update(void){
-	;
+	m_srcRectangle.x  = ((( SDL_GetTicks() >> 7) % 6) << 7);
 }
 
 void Game::handleEvents(void){
@@ -80,9 +80,9 @@ void Game::loadAssets(void){
 	m_pTexture = SDL_CreateTextureFromSurface(m_pRender,pTempSurface);
     SDL_FreeSurface(pTempSurface);
 
-	SDL_QueryTexture(m_pTexture, NULL, NULL, &m_srcRectangle.w, &m_srcRectangle.h);
+	//SDL_QueryTexture(m_pTexture, NULL, NULL, &m_srcRectangle.w, &m_srcRectangle.h);
     m_destRectangle.x = m_srcRectangle.x = 0;
     m_destRectangle.y = m_srcRectangle.y = 0;
-    m_destRectangle.w = m_srcRectangle.w;
-    m_destRectangle.h = m_srcRectangle.h;
+    m_destRectangle.w = m_srcRectangle.w = 128;
+    m_destRectangle.h = m_srcRectangle.h = 82;
 }
