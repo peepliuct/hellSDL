@@ -1,4 +1,4 @@
 lib SDL : : <name>SDL2 <search>/usr/lib/x86_64-linux-gnu : : <include>/usr/include/SDL2 ;
 lib SDLIMG : : <name>SDL2_image <search>/usr/lib/x86_64-linux-gnu : : <include>/usr/include/SDL2 ;
 
-exe hellSDL : main.cc Game.cc SDL SDLIMG ;
+exe hellSDL : main.cc Game.cc TextureManager.cc SDL SDLIMG ;

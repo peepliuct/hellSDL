@@ -40,7 +40,16 @@ void Game::render(void){
     // clear the window to black
     SDL_RenderClear(m_pRender);
 
-	SDL_RenderCopy(m_pRender, m_pTexture, &m_srcRectangle, &m_destRectangle);
+	SDL_RenderCopyEx(m_pRender, m_pTexture, &m_srcRectangle, &m_destRectangle,0,0,SDL_FLIP_HORIZONTAL);
+
+	SDL_Rect srcRectangle;
+    SDL_Rect destRectangle;
+
+	srcRect.convertToSDLRect(srcRectangle);
+	desRect.convertToSDLRect(destRectangle);
+	
+	SDL_RenderCopyEx(pRenderer, m_textureMap[id], &srcRectangle, &destRectangle,0,0,flip);
+
 
     // show the window
     SDL_RenderPresent(m_pRender);
