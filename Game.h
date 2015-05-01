@@ -39,6 +39,10 @@ private:
 
 	SDL_Texture* m_pTexture = NULL;
 
+    SDL_Rect m_srcRectangle;
+
+    SDL_Rect m_destRectangle;
+
 protected:
 
 

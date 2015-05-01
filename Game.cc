@@ -1,5 +1,5 @@
 #include "Game.h"
-#include <iostream>
+#include <SDL_image.h>
 
 
 bool Game::init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen){
@@ -40,13 +40,10 @@ void Game::render(void){
     // clear the window to black
     SDL_RenderClear(m_pRender);
 
+	SDL_RenderCopy(m_pRender, m_pTexture, &m_srcRectangle, &m_destRectangle);
 
     // show the window
     SDL_RenderPresent(m_pRender);
-
-
-    // delay 5s before the window shuts down
-    //SDL_Delay(5000);
 }
 
 void Game::update(void){
@@ -58,7 +55,6 @@ void Game::handleEvents(void){
     SDL_PollEvent(&event);
     switch(event.type){
 	  case SDL_QUIT:{
-		std::cout << "m_bRunning = false " << std::endl;
 		m_bRunning = false;
 	  }break;
 	  default:
@@ -80,7 +76,13 @@ void Game::clean(void){
 
 
 void Game::loadAssets(void){
-	SDL_Surface* pTempSurface = SDL_LoadBMP("assets/fishtitle.bmp");
+	SDL_Surface* pTempSurface = IMG_Load("assets/lion.png");
 	m_pTexture = SDL_CreateTextureFromSurface(m_pRender,pTempSurface);
     SDL_FreeSurface(pTempSurface);
+
+	SDL_QueryTexture(m_pTexture, NULL, NULL, &m_srcRectangle.w, &m_srcRectangle.h);
+    m_destRectangle.x = m_srcRectangle.x = 0;
+    m_destRectangle.y = m_srcRectangle.y = 0;
+    m_destRectangle.w = m_srcRectangle.w;
+    m_destRectangle.h = m_srcRectangle.h;
 }
