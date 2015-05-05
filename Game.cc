@@ -50,8 +50,6 @@ void Game::render(void){
 	
 	SDL_RenderCopyEx(pRenderer, m_textureMap[id], &srcRectangle, &destRectangle,0,0,flip);
 */
-
-
     // show the window
     SDL_RenderPresent(m_pRender);
 }
