@@ -41,7 +41,7 @@ void Game::render(void){
     SDL_RenderClear(m_pRender);
 
 	SDL_RenderCopyEx(m_pRender, m_pTexture, &m_srcRectangle, &m_destRectangle,0,0,SDL_FLIP_HORIZONTAL);
-
+/*
 	SDL_Rect srcRectangle;
     SDL_Rect destRectangle;
 
@@ -49,6 +49,7 @@ void Game::render(void){
 	desRect.convertToSDLRect(destRectangle);
 	
 	SDL_RenderCopyEx(pRenderer, m_textureMap[id], &srcRectangle, &destRectangle,0,0,flip);
+*/
 
 
     // show the window
