@@ -5,9 +5,7 @@ class Rect {
 
 public:
 	Rect(int left, int top, int width, int height):m_left(left),m_top(top),m_width(width),m_height(height){}
-
 	~Rect(){}
-
 	int get_left(void) { return m_left; }
 	void set_left(int left) { m_left = left; }
 
@@ -19,6 +17,8 @@ public:
 
 	int get_height(void) { return m_height; }
 	void set_height(int height) { m_height = height; }
+
+	void increase_left(int left) { m_left += left; }
 
 	template<typename T>
 	void convertToSDLRect(T &rect) const{

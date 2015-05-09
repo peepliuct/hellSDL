@@ -2,11 +2,13 @@
 #define __Game__
 
 #include <SDL.h>
+#include "TextureManager.h"
+#include "Spirit.h"
 
 class Game {
 
 public:
-    Game(void):m_bRunning(false),m_pWindow(NULL),m_pRender(NULL),m_pTexture(NULL){};
+    Game(void):m_bRunning(false),m_pWindow(NULL),m_pRender(NULL),m_pSpirit(NULL){};
 
     ~Game(void) {};
 
@@ -23,7 +25,7 @@ public:
     bool running(void) { return m_bRunning; }
 private:
 
-	void loadAssets(void);
+	void initSpirit(void);
 protected:
 
 
@@ -33,15 +35,13 @@ public:
 private:
     bool m_bRunning;
 
-	SDL_Window* m_pWindow = NULL;
+	SDL_Window* m_pWindow;
 
-	SDL_Renderer* m_pRender = NULL;
+	SDL_Renderer* m_pRender;
 
-	SDL_Texture* m_pTexture = NULL;
+	Spirit* m_pSpirit;
 
-    SDL_Rect m_srcRectangle;
-
-    SDL_Rect m_destRectangle;
+	TextureManager m_textureManager;
 
 protected:
 

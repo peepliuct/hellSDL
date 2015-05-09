@@ -14,7 +14,7 @@ public:
 
     ~TextureManager(void){}
 
-	bool load(const std::string &filename, const std::string &id, SDL_Renderer* pRenderer);
+	bool load(const std::string &filename, const std::string &id,SDL_Renderer* pRenderer);
 
 	SDL_Texture *fetch_texture(const std::string &id){ return m_textureMap[id];}
 
